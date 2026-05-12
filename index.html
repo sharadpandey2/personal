@@ -453,6 +453,12 @@
   .poem-lines span:nth-child(5) { animation-delay: 0.9s; }
   .poem-lines span:nth-child(6) { animation-delay: 1.1s; }
 
+  /* ── SECOND POEM SPECIFIC ── */
+  .poem-section.secondary {
+    background: linear-gradient(160deg, #5a1024 0%, #a02848 50%, #7b1535 100%);
+    padding-top: 3rem; /* slightly less padding so it flows nicely */
+  }
+
   /* ── IMAGE QUOTES ── */
   .img-quotes {
     background: var(--cream);
@@ -772,7 +778,11 @@
       <div class="letter-body">
         <p>There is a <span class="highlight">major reason</span> why I give you all my effort — and it's beautifully simple: you <em>appreciate</em> every single bit of it. Not everyone does that. You do. And that means the entire world to me.</p>
 
+        <p class="hindi">Sach kahu toh... I can never fully confess exactly what I feel in words, but sometimes I just look at you and think ki shayad tum mere bina kuch kahe hi sab samajh jao. 👀🧿💖</p>
+
         <p class="hindi">Mera bahut man karta hai ki tumhe khush rakhu, kisi cheez ki kami na hone du, tumhara khayal rakhu — aur tumhe endless love du 👉👈❤ — <span class="highlight">sirf isliye ki tum saari cheezon ko appreciate karti ho.</span></p>
+
+        <p class="hindi">Meri sabse badi wish yahi hai ki <span class="highlight">tum mere saath, mere paas raho humeshaaaaaaa.</span> Life ki har success, har milestone par I want to hold your hand first. Main bas peeche mud kar dekhu aur yeh ensure karu ki tum wahan khadi ho, mere saath, meri sabse badi strength ban kar. 👀🧿</p>
 
         <p>I cannot afford to lose the girl who <span class="highlight">supports me</span>, who <span class="highlight">daats me</span> when I need it, and who quietly becomes my biggest motivation to work harder every single day.</p>
 
@@ -830,7 +840,7 @@
 </section>
 
 <section class="poem-section">
-  <div class="stars" id="stars"></div>
+  <div class="stars"></div>
   <div class="container">
     <h2 class="poem-title">What My Heart Says…</h2>
     <div class="poem-lines">
@@ -840,6 +850,19 @@
       <span>woh teri yaad se hi hota hai.</span>
       <span>Main sharma jaata hun saamne aakar,</span>
       <span>yahi mera sabse bada izhaar hai. ❤</span>
+    </div>
+  </div>
+</section>
+
+<section class="poem-section secondary">
+  <div class="stars"></div>
+  <div class="container">
+    <h2 class="poem-title">Ek Aakhiri Khwaish...</h2>
+    <div class="poem-lines">
+      <span>Aankhon se teri main khud ko nihaaru,</span>
+      <span>Tujhko main apne hathon se sawaaru,</span>
+      <span>Awaaz ko teri apne kaano mein basaau,</span>
+      <span>Tumhare saath puri zindagi bitana chaahu... 💖</span>
     </div>
   </div>
 </section>
@@ -919,17 +942,18 @@
     petalContainer.appendChild(el);
   }
 
-  /* ── Stars ── */
-  const starContainer = document.getElementById('stars');
-  for (let i = 0; i < 60; i++) {
-    const s = document.createElement('div');
-    s.className = 'star';
-    s.style.left = Math.random() * 100 + '%';
-    s.style.top  = Math.random() * 100 + '%';
-    s.style.animationDelay = (Math.random() * 3) + 's';
-    s.style.animationDuration = (1.5 + Math.random() * 2.5) + 's';
-    starContainer.appendChild(s);
-  }
+  /* ── Stars (Updated to target all star containers) ── */
+  document.querySelectorAll('.stars').forEach(starContainer => {
+    for (let i = 0; i < 40; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      s.style.left = Math.random() * 100 + '%';
+      s.style.top  = Math.random() * 100 + '%';
+      s.style.animationDelay = (Math.random() * 3) + 's';
+      s.style.animationDuration = (1.5 + Math.random() * 2.5) + 's';
+      starContainer.appendChild(s);
+    }
+  });
 
   /* ── Scroll reveal for letter paragraphs ── */
   const observer = new IntersectionObserver((entries) => {
